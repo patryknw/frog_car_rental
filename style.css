@@ -1,0 +1,528 @@
+@font-face{
+    font-family: "Oswald-Regular";
+    src: url("fonts/Oswald-Regular.ttf");
+}
+
+@font-face{
+    font-family: "Oswald-Light";
+    src: url("fonts/Oswald-Light.ttf");
+}
+
+@font-face{
+    font-family: "Oswald-ExtraLight";
+    src: url("fonts/Oswald-ExtraLight.ttf");
+}
+
+@font-face{
+    font-family: "Oswald-Medium";
+    src: url("fonts/Oswald-Medium.ttf");
+}
+
+@font-face{
+    font-family: "Oswald-SemiBold";
+    src: url("fonts/Oswald-SemiBold.ttf");
+}
+
+@font-face{
+    font-family: "Oswald-Bold";
+    src: url("fonts/Oswald-Bold.ttf");
+}
+
+button{
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 8px;
+    border-width: 0;
+    width: 180px;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Oswald-Light";
+    font-size: 24px;
+    line-height: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+button:hover{
+    color: white;
+    background-color: #d4af37;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+header{
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#header-links{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#header-links a{
+    color: black;
+    font-family: "Oswald-Light";
+    font-size: 36px;
+    box-shadow: inset 0 0 0 0 #d4af37;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+#header-links a:hover{
+    color: white;
+    box-shadow: inset 200px 0 0 0 #d4af37;
+}
+
+#header-socials{
+    width: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#header-socials a{
+    transition: opacity .2s ease-in-out;
+    opacity: 1;
+}
+
+#header-socials a:hover{
+    opacity: 0.5;
+}
+
+#header-icon-div{
+    width: 11%;
+}
+
+#header-icon-div img{
+    width: 100%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+p{
+    font-family: "Oswald-Light";
+    font-size: 20px;
+}
+
+h1{
+    font-family: "Oswald-Medium";
+    font-size: 120px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2{
+    font-family: "Oswald-Regular";
+    font-size: 52px;
+    margin: 0;
+    font-weight: normal;
+}
+
+h3{
+    font-family: "Oswald-Light";
+    font-size: 32px;
+    margin: 0;
+}
+
+h4{
+    font-family: "Oswald-Light";
+    font-size: 28px;
+    margin: 0;
+    font-weight: normal;
+}
+
+main{
+    width: 100%;
+}
+
+#welcome{
+    margin-top: 240px;
+    margin-left: 30vh;
+}
+
+#welcome h1{
+    text-decoration: underline;
+    text-decoration-color: #d4af37;
+    text-decoration-thickness: 6px;
+    text-underline-offset: 8px;
+}
+
+#welcome h2{
+    width: 50%;
+}
+
+#quote{
+    margin-top: 220px;
+    margin-left: 50vh;
+    width: 50%;
+    text-align: center;
+}
+
+#quote img{
+    width: 40%;
+    border-radius: 360px;
+    margin-bottom: 50px;
+}
+
+#quote h3{
+    text-align: justify;
+}
+
+#quote h4{
+    text-align: right;
+    margin-top: 28px;
+}
+
+#gallery{
+    margin-top: 260px;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+#gallery-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#gallery img{
+    width: 40%;
+    height: 100%;
+}
+
+#gallery-description{
+    text-align: justify;
+    width: 50%;
+}
+
+#gallery-description p{
+    font-size: 24px;
+}
+
+#have-fun{
+    margin-top: 300px;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+#have-fun-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#have-fun-description{
+    width: 33%;
+    text-align: justify;
+}
+
+#have-fun-description p{
+    font-size: 24px;
+}
+
+#have-fun-video{
+    width: 800px;
+    height: 450px;
+}
+
+#bestseller{
+    margin-top: 260px;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+#bestseller h2{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#bestseller h4{
+    text-align: center;
+}
+
+#bestseller p{
+    font-size: 24px;
+}
+
+#bestseller-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+#bestseller-description{
+    margin-top: 40px;
+}
+
+#bestseller-description p{
+    margin: 0;
+}
+
+#bestseller-description button{
+    margin-top: 40px;
+}
+
+#bestseller-description table{
+    border-spacing: 64px 12px;
+    margin-left: -64px;
+}
+
+#bestseller img{
+    width: 50%;
+    height: 100%;
+    margin-top: 40px;
+}
+
+#contact{
+    margin-top: 200px;
+    margin-left: 30vh;
+    margin-right: 30vh;
+    margin-bottom: 100px;
+}
+
+#contact h2{
+    margin-bottom: 40px;
+}
+
+#contact-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#contact-description p{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#contact-map{
+    width: 650px;
+    height: 450px;
+}
+
+#opinions{
+    margin-top: 260px;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+#opinions h2{
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+#opinions-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 160px;
+    margin-bottom: 120px;
+}
+
+.opinion-card{
+    width: 100%;
+    text-align: center;
+}
+
+.opinion-card img{
+    width: 50%;
+    border-radius: 360px;
+}
+
+.opinion-card h4{
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+.opinion-card p{
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 12px;
+}
+
+footer{
+    width: 100%;
+    height: 2rem;
+    text-align: center;
+    color: #5e5e5e;
+    background-color: #e9e9e9;
+}
+
+footer a{
+    color: #5e5e5e;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: white;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #bdbdbd;
+    border-radius: 36px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #9b9b9b;
+}
+
+::selection{
+    color: black;
+    background: #d4af37;
+}
+
+::-moz-selection{
+    color: black;
+    background: #d4af37;
+}
+
+form{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7vh;
+    text-align: center;
+    width: 30%;
+    height: 80vh;
+    margin-top: 10vh;
+    border-radius: 36px;
+    background-color: whitesmoke;
+}
+
+form p{
+    margin: 0;
+    margin-top: 8px;
+    font-size: 26px;
+}
+
+form h2{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-size: 44px;
+}
+
+form input[type=text], input[type=email], form input[type=password]{
+    border: 0;
+    border-radius: 18px;
+    outline: none;
+    font-family: "Oswald-Light";
+    font-size: 20px;
+    margin: 8px;
+    padding: 4px 18px;
+    width: 54%;
+    height: 36px;
+    background-color: white;
+}
+
+form input[type=submit]{
+    border: 0;
+    border-radius: 36px;
+    outline: none;
+    font-family: "Oswald-Light";
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 90px;
+    width: 44%;
+    height: 56px;
+    background-color: white;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+form input[type=submit]:hover{
+    cursor: pointer;
+    color: white;
+    background-color: #d4af37;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+form input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+    outline: none;
+    accent-color: #d4af37;
+}
+
+form span{
+    font-family: "Oswald-Light";
+    font-size: 20px;
+}
+
+#register-link{
+    text-decoration: underline;
+    color: black;
+    transition: color .2s ease-in-out;
+}
+
+#register-link:hover{
+    color: #d4af37;
+    transition: color .2s ease-in-out;
+}
+
+#car-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 60px;
+    margin-top: 200px;
+    margin-left: 240px;
+    margin-right: 240px;
+}
+
+.car-card{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+.car-card p{
+    margin: 8px;
+    font-size: 22px;
+}
+
+.car-card h5{
+    margin: 8px;
+    font-family: "Oswald-Light";
+    font-size: 32px;
+}
+
+.car-card img{
+    width: 100%;
+}
