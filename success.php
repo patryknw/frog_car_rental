@@ -5,14 +5,13 @@
     <title>Frog Car Rental</title>
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
-    <script src="business.js" defer></script>
 </head>
 <body>
     <header>
         <div id="header-links">
             <a href="index.html">O nas</a>
             <a href="cars.php">Samochody</a>
-            <a href="login.html">Zaloguj się</a>
+            <a href="login.php">Zaloguj się</a>
         </div>
         <div id="header-socials">
             <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
@@ -21,27 +20,11 @@
         </div>
     </header>
     <main>
-        <form method="POST">
+        <form>
             <h2>Rejestracja</h2>
-            <input type="text" id="name" name="name" placeholder="Imię"/>
-            <br/>
-            <input type="text" id="surname" name="surname" placeholder="Nazwisko"/>
-            <br/>
-            <input type="email" id="email" name="email" placeholder="E-Mail"/>
-            <br/>
-            <input type="password" id="password" name="password" placeholder="Hasło"/>
-            <br/>
-            <input type="password" id="password2" name="password2" placeholder="Powtórz hasło"/>
-            <br/>
-            <label><input type="checkbox" id="business" name="business" value="business"/><span> Mam firmę</span></label>
-            <br/>
-
-            <input type="text" id="nip" name="nip" placeholder="NIP" minlength="10" maxlength="10"/>
-            <br/>
-            <input type="text" id="regon" name="regon" placeholder="REGON" minlength="9" maxlength="9"/>
-            <br/>
-
-            <input type="submit" value="Zarejestruj się"/>
+            <h4 id="success">Pomyślnie utworzono konto!</h4>
+            <p>Przejdź do logowania</p>
+            <p><a id="register-link" href="login.php">Zaloguj się</a></p>
         </form>
     </main>
     <footer>

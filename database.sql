@@ -1,30 +1,33 @@
 CREATE DATABASE frog_car_rental CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE users(
-    name VARCHAR(255),
-	surname VARCHAR(255),
-	email VARCHAR(255),
-	password VARCHAR(255),
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(128),
+	surname VARCHAR(128),
+	email VARCHAR(128) UNIQUE,
+	password VARCHAR(128),
 	is_business BOOLEAN,
 	nip INT,
 	regon INT
 );
 
 CREATE TABLE cars(
-    id INT,
-    brand VARCHAR(255),
-	model VARCHAR(255),
+    id INT NOT NULL PRIMARY KEY,
+    brand VARCHAR(128),
+	model VARCHAR(128),
 	horsepower INT,
 	acceleration DECIMAL(2, 1),
 	top_speed INT,
-	engine VARCHAR(255),
-    drivetrain VARCHAR(255),
-    transmission VARCHAR(255),
+	engine VARCHAR(128),
+    drivetrain VARCHAR(128),
+    transmission VARCHAR(128),
 	year INT,
-	price INT
+	price INT,
+    is_available BOOLEAN
 );
 
 INSERT INTO users VALUES(
+    NULL,
     "Patryk",
     "Nowak",
     "patryk.nowak@zs1piaseczno.pl",
@@ -45,7 +48,8 @@ INSERT INTO cars VALUES(
     "RWD",
     "manual",
     2013,
-    1200
+    1200,
+    1
 );
 
 INSERT INTO cars VALUES(
@@ -59,7 +63,8 @@ INSERT INTO cars VALUES(
     "AWD",
     "sequential",
     2022,
-    1800
+    1800,
+    1
 );
 
 INSERT INTO cars VALUES(
@@ -73,5 +78,6 @@ INSERT INTO cars VALUES(
     "AWD",
     "sequential",
     2019,
-    1600
+    1600,
+    1
 );

@@ -433,7 +433,7 @@ form p{
 
 form h2{
     padding-top: 40px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     font-size: 44px;
 }
 
@@ -483,9 +483,27 @@ form input[type=checkbox]{
     accent-color: #d4af37;
 }
 
-form span{
+form .form-first-element{
+    margin-top: 24px !important;
+}
+
+form #error-span{
     font-family: "Oswald-Light";
     font-size: 20px;
+    color: red;
+}
+
+form #business-span{
+    font-family: "Oswald-Light";
+    font-size: 20px;
+}
+
+form #success{
+    font-family: "Oswald-Light";
+    font-size: 32px;
+    color: green;
+    margin-top: 60px;
+    margin-bottom: 72px;
 }
 
 #register-link{

@@ -12,7 +12,7 @@
         <div id="header-links">
             <a href="index.html">O nas</a>
             <a href="cars.php">Samochody</a>
-            <a href="login.html">Zaloguj się</a>
+            <a href="login.php">Zaloguj się</a>
         </div>
         <div id="header-socials">
             <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
