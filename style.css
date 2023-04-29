@@ -511,6 +511,13 @@ form span{
     height: 100%;
     text-align: center;
     background-color: whitesmoke;
+    transition: opacity 0.3s;
+}
+
+.car-card:hover{
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
 }
 
 .car-card p{
@@ -532,4 +539,10 @@ form span{
     font-size: 24px !important;
     margin-top: 6px !important;
     margin-bottom: 16px !important;
+}
+
+#rent-container{
+    margin-top: 200px;
+    margin-left: 240px;
+    margin-right: 240px;
 }

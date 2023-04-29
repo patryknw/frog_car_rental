@@ -19,6 +19,7 @@ CREATE TABLE cars(
 	top_speed INT,
 	engine VARCHAR(255),
     drivetrain VARCHAR(255),
+    transmission VARCHAR(255),
 	year INT,
 	price INT
 );
@@ -42,6 +43,7 @@ INSERT INTO cars VALUES(
     290,
     "4L V8",
     "RWD",
+    "manual",
     2013,
     1200
 );
@@ -55,6 +57,7 @@ INSERT INTO cars VALUES(
     328,
     "3.8L V6 (TT)",
     "AWD",
+    "sequential",
     2022,
     1800
 );
@@ -68,6 +71,7 @@ INSERT INTO cars VALUES(
     316,
     "5.2 V10",
     "AWD",
+    "sequential",
     2019,
     1600
 );

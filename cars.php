@@ -5,6 +5,7 @@
     <title>Frog Car Rental</title>
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
+    <script src="redirect.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,7 +25,7 @@
             <?php
                 $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
                 $query = mysqli_query($conn, "SELECT * FROM `cars`");
-                
+
                 while($row = mysqli_fetch_array($query)){
                     echo '
                     <div class="car-card">
@@ -33,12 +34,10 @@
                         <p>'.$row["horsepower"].' KM</p>
                         <p>'.$row["acceleration"].' s</p>
                         <p>'.$row["top_speed"].' km/h</p>
-                        <p>'.$row["engine"].'</p>
                         <p class="car-card-price"><b>'.$row["price"].' zł</b> za dzień</p>
                     </div>
                     ';
                 }
-
 
                 for($i = 0; $i < 20; $i++){
                     echo '
