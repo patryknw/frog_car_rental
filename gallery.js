@@ -1,48 +1,24 @@
-let gallery1 = document.querySelector("#photo1");
+let gallery = document.querySelector("#gallery-photos");
 
-const photos = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
-const intervalTime = 14;
-let i = 1;
+let photos = [];
+let j = 1;
 
-gallery1.style.opacity = 1;
-
-function fadeIn(photo){
-    let interval;
-    interval = setInterval(() => {
-        if(photo.style.opacity < 1){
-            photo.style.opacity -= -0.05;
-        } else{
-            clearInterval(interval);
-        }
-    }, intervalTime);
-}
-
-function fadeOut(photo){
-    let interval;
-    interval = setInterval(() => {
-        if(photo.style.opacity > 0){
-            photo.style.opacity -= 0.05;
-        } else{
-            clearInterval(interval);
-        }
-    }, intervalTime);
-}
-
-function switchPhoto(gallery){
-    if(i == photos.length){
-        i = 0;
-    }
-    let photo = photos[i];
-
-    fadeOut(gallery);
-    setTimeout(() => {
-        fadeIn(gallery);
-        gallery.src = photo;
-    }, (intervalTime * 20));
-
-    i++;
+for(let i = 0; i < 5; i++){
+    photos.push(`images/gallery/${i+1}.jpg`);
 }
 
 setInterval(() => {
-    switchPhoto(gallery1);
+    if(j == photos.length){
+        j = 0;
+    }
+
+    let photo = photos[j];
+    gallery.style.opacity = 0;
+
+    setTimeout(() => {
+        gallery.src = photo;
+        gallery.style.opacity = 1;
+    }, 300);
+
+    j++;
 }, 4000);

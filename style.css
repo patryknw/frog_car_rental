@@ -218,6 +218,7 @@ main{
 #gallery img{
     width: 40%;
     height: 100%;
+    transition: opacity 0.3s;
 }
 
 #gallery-description{
@@ -498,8 +499,8 @@ form span{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 60px;
+    justify-content: space-between;
+    gap: 40px;
     margin-top: 200px;
     margin-left: 240px;
     margin-right: 240px;
@@ -513,16 +514,22 @@ form span{
 }
 
 .car-card p{
-    margin: 8px;
+    margin: 2px 0 2px 0;
     font-size: 22px;
 }
 
 .car-card h5{
-    margin: 8px;
+    margin: 6px 0 12px 0;
     font-family: "Oswald-Light";
     font-size: 32px;
 }
 
 .car-card img{
     width: 100%;
+}
+
+.car-card-price{
+    font-size: 24px !important;
+    margin-top: 6px !important;
+    margin-bottom: 16px !important;
 }
