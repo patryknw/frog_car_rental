@@ -29,12 +29,14 @@
                 while($row = mysqli_fetch_array($query)){
                     echo '
                     <div class="car-card">
-                        <img src="images/cars/'.$row["id"].'.jpg"/>
-                        <h5>'.$row["brand"].' '.$row["model"].'</h5>
-                        <p>'.$row["horsepower"].' KM</p>
-                        <p>'.$row["acceleration"].' s</p>
-                        <p>'.$row["top_speed"].' km/h</p>
-                        <p class="car-card-price"><b>'.$row["price"].' zł</b> za dzień</p>
+                        <a href="#">
+                            <img src="images/cars/'.$row["id"].'.jpg"/>
+                            <h5>'.$row["brand"].' '.$row["model"].'</h5>
+                            <p>'.$row["horsepower"].' KM</p>
+                            <p>'.$row["acceleration"].' s</p>
+                            <p>'.$row["top_speed"].' km/h</p>
+                            <p class="car-card-price"><b>'.$row["price"].' zł</b> za dzień</p>
+                        </a>
                     </div>
                     ';
                 }
@@ -42,10 +44,12 @@
                 for($i = 0; $i < 20; $i++){
                     echo '
                     <div class="car-card">
-                        <img src="images/cars/1.jpg"/>
-                        <h5>BMW M3 E92</h5>
-                        <p>420 KM</p>
-                        <p>600 zł za dzień</p>
+                        <a href="#">
+                            <img src="images/cars/1.jpg"/>
+                            <h5>BMW M3 E92</h5>
+                            <p>420 KM</p>
+                            <p>600 zł za dzień</p>
+                        </a>
                     </div>
                     ';
                 }

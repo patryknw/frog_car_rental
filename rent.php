@@ -21,14 +21,19 @@
     </header>
     <main>
         <div id="rent-container">
-            <h2>test</h2>
             <?php
-                if(isset($_GET["id"])){
-                    echo "<p>".$_GET["id"]."</p>";
-
+                if(isset($_GET["auto"])){
                     $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
-                    $query = mysqli_query($conn, "SELECT * FROM `cars` WHERE id=".$_GET["id"]);
+
+                    $unformatted = explode("_", $_GET["auto"]);
+                    $brand = $unformatted[0];
+                    array_shift($unformatted);
+                    $model = implode(" ", $unformatted);
+
+                    $query = mysqli_query($conn, "SELECT * FROM `cars` WHERE brand='".$brand."' AND model='".$model."'");
                     $row = mysqli_fetch_array($query);
+
+                    echo "<h2>".$brand." ".$model."</h2>";
 
                     echo "<pre>";
                     print_r($row);
