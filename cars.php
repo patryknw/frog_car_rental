@@ -5,7 +5,8 @@
     <title>Frog Car Rental</title>
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
-    <script src="redirect.js" defer></script>
+    <script src="scripts/redirect.js" defer></script>
+    <script src="scripts/sort.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,45 +22,67 @@
         </div>
     </header>
     <main>
-        <div id="car-container">
-            <?php
-                $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
-                $query = mysqli_query($conn, "SELECT * FROM `cars`");
+        <div id="cars">
+            <div id="car-sort">
+                <select id="car-sort-select">
+                    <option value="" selected disabled hidden>sortuj</option>
+                    <option value="recommended">polecane</option>
+                    <option value="price_ascending">cena rosnąco</option>
+                    <option value="price_descending">cena malejąco</option>
+                    <option value="horsepower_ascending">moc rosnąco</option>
+                    <option value="horsepower_descending">moc malejąco</option>
+                </select>
+            </div>
+            <div id="car-container">
+                <?php
+                    $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
+                    $query = mysqli_query($conn, "SELECT * FROM `cars`");
 
-                while($row = mysqli_fetch_array($query)){
-                    echo '
-                    <div class="car-card">
-                        <a href="#">
-                            <img src="images/cars/'.$row["id"].'.jpg"/>
-                            <h5>'.$row["brand"].' '.$row["model"].'</h5>
-                            <p>'.$row["horsepower"].' KM</p>
-                            <p>'.$row["acceleration"].' s</p>
-                            <p>'.$row["top_speed"].' km/h</p>
-                            <p class="car-card-price"><b>'.$row["price"].' zł</b> za dzień</p>
-                        </a>
-                    </div>
-                    ';
-                }
+                    if(isset($_GET["sort"])){
+                        switch($_GET["sort"]){
+                            case "recommended":
+                                $query = mysqli_query($conn, "SELECT * FROM `cars`");
+                                break;
+                            case "price_ascending":
+                                $query = mysqli_query($conn, "SELECT * FROM `cars` ORDER BY price ASC");
+                                break;
+                            case "price_descending":
+                                $query = mysqli_query($conn, "SELECT * FROM `cars` ORDER BY price DESC");
+                                break;
+                            case "horsepower_ascending":
+                                $query = mysqli_query($conn, "SELECT * FROM `cars` ORDER BY horsepower ASC");
+                                break;
+                            case "horsepower_descending":
+                                $query = mysqli_query($conn, "SELECT * FROM `cars` ORDER BY horsepower DESC");
+                                break;
+                            default:
+                                $query = mysqli_query($conn, "SELECT * FROM `cars`");
+                                break;
+                        }
+                    }
 
-                for($i = 0; $i < 20; $i++){
-                    echo '
-                    <div class="car-card">
-                        <a href="#">
-                            <img src="images/cars/1.jpg"/>
-                            <h5>BMW M3 E92</h5>
-                            <p>420 KM</p>
-                            <p>600 zł za dzień</p>
-                        </a>
-                    </div>
-                    ';
-                }
+                    while($row = mysqli_fetch_array($query)){
+                        echo '
+                        <div class="car-card">
+                            <a href="#">
+                                <img src="images/cars/'.$row["id"].'.jpg"/>
+                                <h5>'.$row["brand"].' '.$row["model"].'</h5>
+                                <p>'.$row["horsepower"].' KM</p>
+                                <p>'.$row["acceleration"].' s</p>
+                                <p>'.$row["top_speed"].' km/h</p>
+                                <p class="car-card-price"><b>'.$row["price"].' zł</b> za dzień</p>
+                            </a>
+                        </div>
+                        ';
+                    }
 
-                mysqli_close($conn);
-            ?>
+                    mysqli_close($conn);
+                ?>
+            </div>
         </div>
     </main>
     <footer>
-        <p>Copyright &copy; 2023 <a href="index.html">frogcarrental.pl</a></p>
+        <p>Copyright &copy; 2023 frogcarrental.pl</p>
     </footer>
 </body>
 </html>

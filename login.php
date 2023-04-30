@@ -57,6 +57,7 @@
                         echo "<span id='error-span'>Uzupełnij hasło</span>";
                     }
                 }
+                echo "<span id='error-span'>&nbsp;</span>";
                 echo "<br/>";
             ?>
             <input type="email" id="email" name="email" class="form-first-element" placeholder="E-Mail"/>
@@ -69,7 +70,7 @@
         </form>
     </main>
     <footer>
-        <p>Copyright &copy; 2023 <a href="index.html">frogcarrental.pl</a></p>
+        <p>Copyright &copy; 2023 frogcarrental.pl</p>
     </footer>
 </body>
 </html>

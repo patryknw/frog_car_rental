@@ -5,7 +5,7 @@
     <title>Frog Car Rental</title>
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
-    <script src="business.js" defer></script>
+    <script src="scripts/business.js" defer></script>
 </head>
 <body>
     <header>
@@ -25,7 +25,7 @@
             <h2>Rejestracja</h2>
             <?php
 
-                function runQuery($is_business){
+                function addToDB($is_business){
                     $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
                     if($is_business == TRUE){
                         $query_text = '
@@ -58,9 +58,9 @@
                     mysqli_close($conn);
                 }
 
-                function checkIfExists($email){
+                function checkIfExists($dataInDB, $dataInForm){
                     $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
-                    $query = "SELECT * FROM users WHERE email = '".$_POST["email"]."'";
+                    $query = "SELECT * FROM users WHERE ".$dataInDB." = '".$dataInForm."'";
                     $res = mysqli_query($conn, $query);
 
                     if(mysqli_num_rows($res) > 0){
@@ -77,21 +77,29 @@
                         if($_POST["password"] == $_POST["password2"]){
                             if(isset($_POST["business"])){
                                 if(!empty($_POST["nip"]) && !empty($_POST["regon"])){
-                                    if(checkIfExists($_POST["email"])){
+                                    if(checkIfExists("email", $_POST["email"])){
                                         echo "<span id='error-span'>Konto z tym e-mailem już istnieje</span>";
                                     } else{
-                                        runQuery(TRUE);
-                                        header("Location: success.php");
-                                        exit;
+                                        if(checkIfExists("nip", $_POST["nip"])){
+                                            echo "<span id='error-span'>Konto z tym numerem NIP już istnieje</span>";
+                                        } else{
+                                            if(checkIfExists("regon", $_POST["regon"])){
+                                                echo "<span id='error-span'>Konto z tym numerem REGON już istnieje</span>";
+                                            } else{
+                                                addToDB(TRUE);
+                                                header("Location: success.php");
+                                                exit;
+                                            }
+                                        }
                                     }
                                 } else{
-                                    echo "<span id='error-span'>Wypełnij numery NIP i REGON</span>";
+                                    echo "<span id='error-span'>Uzupełnij numery NIP i REGON</span>";
                                 }
                             } else{
-                                if(checkIfExists($_POST["email"])){
+                                if(checkIfExists("email", $_POST["email"])){
                                     echo "<span id='error-span'>Konto z tym e-mailem już istnieje</span>";
                                 } else{
-                                    runQuery(FALSE);
+                                    addToDB(FALSE);
                                     header("Location: success.php");
                                     exit;
                                 }
@@ -100,10 +108,11 @@
                             echo "<span id='error-span'>Hasła się nie zgadzają</span>";
                         }
                     } else{
-                        echo "<span id='error-span'>Wypełnij wszystkie dane</span>";
+                        echo "<span id='error-span'>Uzupełnij wszystkie dane</span>";
                     }
                     mysqli_close($conn);
                 }
+                echo "<span id='error-span'>&nbsp;</span>";
                 echo "<br/>";
             ?>
             <input type="text" id="name" name="name" class="form-first-element" placeholder="Imię"/>
@@ -128,7 +137,7 @@
         </form>
     </main>
     <footer>
-        <p>Copyright &copy; 2023 <a href="index.html">frogcarrental.pl</a></p>
+        <p>Copyright &copy; 2023 frogcarrental.pl</p>
     </footer>
 </body>
 </html>

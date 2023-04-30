@@ -20,12 +20,14 @@
         </div>
     </header>
     <main>
-        <form>
-            <h2>Rejestracja</h2>
-            <h4 id="success">Pomyślnie utworzono konto!</h4>
-            <p>Przejdź do logowania</p>
-            <p><a id="register-link" href="login.php">Zaloguj się</a></p>
-        </form>
+        <div id="account">
+            <h2>Imię Nazwisko</h2>
+            <h4>imienazwisko@gmail.com</h4>
+            <h4>8473920174</h4>
+            <h4>758493053</h4>
+            <button>Wyloguj się</button>
+            <h3>Wynajęte auta</h3>
+        </div>
     </main>
     <footer>
         <p>Copyright &copy; 2023 frogcarrental.pl</p>

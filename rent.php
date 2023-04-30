@@ -5,6 +5,7 @@
     <title>Frog Car Rental</title>
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
+    <script src="scripts/rent.js" defer></script>
 </head>
 <body>
     <header>
@@ -127,9 +128,18 @@
                 }
             ?>
         </div>
+        <div id="rent-form">
+            <form onsubmit="return false">
+                <input type="date"/>
+                <br/>
+                <input type="date"/>
+                <br/>
+                <button>Wynajmij</button>
+            </form>
+        </div>
     </main>
     <footer>
-        <p>Copyright &copy; 2023 <a href="index.html">frogcarrental.pl</a></p>
+        <p>Copyright &copy; 2023 frogcarrental.pl</p>
     </footer>
 </body>
 </html>

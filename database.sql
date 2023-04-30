@@ -7,8 +7,8 @@ CREATE TABLE users(
 	email VARCHAR(128) UNIQUE,
 	password VARCHAR(128),
 	is_business BOOLEAN,
-	nip INT,
-	regon INT
+	nip INT UNIQUE,
+	regon INT UNIQUE
 );
 
 CREATE TABLE cars(
