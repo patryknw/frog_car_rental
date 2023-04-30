@@ -241,6 +241,7 @@ main{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 60px;
 }
 
 #have-fun-description{
@@ -523,7 +524,7 @@ form #success{
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 40px;
-    margin-top: 200px;
+    margin-top: 160px;
     margin-left: 240px;
     margin-right: 240px;
 }
@@ -563,8 +564,67 @@ form #success{
     margin-bottom: 16px !important;
 }
 
-#rent-container{
-    margin-top: 200px;
+#rent{
+    margin-top: 140px;
     margin-left: 240px;
     margin-right: 240px;
+}
+
+#rent h2{
+    margin-bottom: 28px;
+    font-size: 58px;
+    text-decoration: underline;
+    text-decoration-color: #d4af37;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+}
+
+#rent-go-back{
+    margin: 0;
+    width: 5rem;
+}
+
+#rent-go-back p{
+    margin: 0 0 4px 0;
+    color: black;
+    transition: color .2s ease-in-out;
+}
+
+#rent-go-back p:hover{
+    color: #d4af37;
+    transition: color .2s ease-in-out;
+}
+
+#rent-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#rent-description{
+    width: 50%;
+}
+
+#rent-description p{
+    font-size: 24px;
+    margin: 0;
+}
+
+#rent-description table{
+    border-spacing: 96px 12px;
+    margin-left: -96px;
+}
+
+#rent-description button{
+    margin: 40px 0 22px 0;
+    width: 50%;
+    height: 72px;
+}
+
+#rent-image{
+    width: 50%;
+}
+
+#rent-image img{
+    width: 100%;
 }
