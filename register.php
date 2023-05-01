@@ -87,7 +87,7 @@
                                                 echo "<span class='error-span'>Konto z tym numerem REGON już istnieje</span>";
                                             } else{
                                                 addToDB(TRUE);
-                                                header("Location: success.php");
+                                                header("Location: success_account.php");
                                                 exit;
                                             }
                                         }
@@ -100,7 +100,7 @@
                                     echo "<span class='error-span'>Konto z tym e-mailem już istnieje</span>";
                                 } else{
                                     addToDB(FALSE);
-                                    header("Location: success.php");
+                                    header("Location: success_account.php");
                                     exit;
                                 }
                             }

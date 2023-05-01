@@ -37,12 +37,12 @@ body{
     position: relative;
 }
 
-button{
-    background-color: rgba(51, 51, 51, 0.05);
+button, form input[type=submit]{
+    background-color: whitesmoke;
     border-radius: 8px;
     border-width: 0;
     width: 180px;
-    color: #333333;
+    color: black;
     cursor: pointer;
     display: inline-block;
     font-family: "Oswald-Light";
@@ -57,7 +57,7 @@ button{
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
 }
 
-button:hover{
+button:hover, form input[type=submit]:hover{
     color: white;
     background-color: #d4af37;
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
@@ -384,8 +384,8 @@ footer{
     width: 100%;
     height: 3rem;
     text-align: center;
-    color: #5e5e5e;
-    background-color: #e9e9e9;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: whitesmoke;
     position: absolute;
     bottom: 0;
 }
@@ -463,7 +463,7 @@ form #nip, form #regon{
     display: none;
 }
 
-form input[type=submit]{
+#login, #register{
     border: 0;
     border-radius: 36px;
     outline: none;
@@ -477,7 +477,7 @@ form input[type=submit]{
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
 }
 
-form input[type=submit]:hover{
+#login:hover, #register:hover{
     cursor: pointer;
     color: white;
     background-color: #d4af37;
@@ -690,13 +690,17 @@ form #success{
 #rent-form form{
     z-index: 30;
     background-color: white;
+    position: relative;
+    width: 33%;
+    height: 90vh;
+    margin-top: 5vh;
 }
 
 #rent-form-close{
     width: 100%;
     height: 10px;
     margin-top: 0;
-    padding: 10px 0 40px 0;
+    padding: 10px 0 30px 0;
     font-size: 28px;
     text-align: right;
 }
@@ -714,13 +718,74 @@ form #success{
 }
 
 #rent-form h3{
-    font-size: 40px;
-    margin-bottom: 16px;
+    font-size: 44px;
+    margin-bottom: 12px;
+}
+
+#rent-form h4{
+    font-size: 26px;
+    margin: 26px 0 12px 0;
+}
+
+#rent-form p{
+    font-family: "Oswald-Light";
+    font-size: 20px;
 }
 
 #rent-form span{
     font-family: "Oswald-Light";
     font-size: 20px;
+}
+
+#rent-form-disclaimer{
+    color: rgba(0, 0, 0, 0.8);
+}
+
+#rent-form-dates{
+    width: 66%;
+    height: 7.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+
+#rent-form-dates p{
+    margin: 4px 0 4px 0;
+    letter-spacing: 0.03rem;
+}
+
+#rent-form-options{
+    margin: 0 80px 0 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#rent-form-options label{
+    margin: 0;
+}
+
+#rent-form-total{
+    position: absolute;
+    bottom: 6.5rem;
+    width: 14rem;
+    left: calc(50% - 7rem);
+}
+
+#rent-form-button{
+    position: absolute;
+    bottom: 2rem;
+    width: 14rem;
+    left: calc(50% - 7rem);
+}
+
+#rent-form-submit{
+    width: 100%;
+    height: 4rem;
+    font-size: 24px;
 }
 
 #account{

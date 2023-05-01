@@ -23,8 +23,69 @@ CREATE TABLE cars(
     transmission VARCHAR(128),
     fuel VARCHAR(128),
 	year INT,
-	price INT,
-    is_available BOOLEAN
+	price INT
+);
+
+CREATE TABLE rent_data(
+    rentId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    carId INT NOT NULL,
+    dateFrom INT,
+    dateUntil INT,
+    car_wash BOOLEAN,
+    flowers BOOLEAN,
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (carId) REFERENCES cars(id)
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    1,
+    5,
+    1680818400,
+    1685570400,
+    1,
+    1
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    3,
+    2,
+    1682892000,
+    1683410400,
+    0,
+    0
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    3,
+    3,
+    1684620000,
+    1684792800,
+    1,
+    0
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    4,
+    2,
+    1683842400,
+    1684188000,
+    0,
+    1
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    4,
+    3,
+    1681941600,
+    1682028000,
+    0,
+    0
 );
 
 INSERT INTO users VALUES(
@@ -50,8 +111,7 @@ INSERT INTO cars VALUES(
     "manual",
     "petrol",
     2013,
-    1200,
-    1
+    1200
 );
 
 INSERT INTO cars VALUES(
@@ -66,8 +126,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2022,
-    1800,
-    1
+    1800
 );
 
 INSERT INTO cars VALUES(
@@ -82,8 +141,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2019,
-    1600,
-    1
+    1600
 );
 
 INSERT INTO cars VALUES(
@@ -98,8 +156,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2017,
-    1100,
-    1
+    1100
 );
 
 INSERT INTO cars VALUES(
@@ -114,8 +171,7 @@ INSERT INTO cars VALUES(
     "sequential",
     "petrol",
     2021,
-    2500,
-    1
+    2500
 );
 
 INSERT INTO cars VALUES(
@@ -130,8 +186,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2020,
-    2200,
-    1
+    2200
 );
 
 INSERT INTO cars VALUES(
@@ -146,8 +201,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2019,
-    2000,
-    1
+    2000
 );
 
 INSERT INTO cars VALUES(
@@ -162,8 +216,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2018,
-    2400,
-    1
+    2400
 );
 
 INSERT INTO cars VALUES(
@@ -178,8 +231,7 @@ INSERT INTO cars VALUES(
     "sequential",
     "petrol",
     2015,
-    2300,
-    1
+    2300
 );
 
 INSERT INTO cars VALUES(
@@ -194,6 +246,5 @@ INSERT INTO cars VALUES(
     "manual",
     "petrol",
     2016,
-    1000,
-    1
+    1000
 );

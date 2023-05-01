@@ -33,6 +33,7 @@
                     $model = implode(" ", $unformatted);
                     $query = mysqli_query($conn, "SELECT * FROM `cars` WHERE brand='".$brand."' AND model='".$model."'");
                     $row = mysqli_fetch_array($query);
+                    $car_id = $row["id"];
 
                     switch($row["drivetrain"]){
                         case "AWD":
@@ -109,7 +110,7 @@
                                 </tr>
                                 <tr>
                                     <td><p>cena</p></td>
-                                    <td><p><b>'.$row["price"].' za dzień</b></p></td>
+                                    <td><p id="rent-car-price"><b>'.$row["price"].' za dzień</b></p></td>
                                 </tr>
                             </table>
                             ';
@@ -119,7 +120,7 @@
 
                         echo '
                         <div id="rent-image">
-                            <img src="images/cars/'.$row["id"].'.jpg"/>
+                            <img src="images/cars/'.$car_id.'.jpg"/>
                         </div>
                         ';
 
@@ -129,25 +130,69 @@
             ?>
         </div>
         <div id="rent-form">
-            <form onsubmit="return false">
+            <form method="POST">
                 <div id="rent-form-close"><span id="rent-form-close-span">&#x2715;</span></div>
                 <h3>Wynajmij</h3>
                 <span class="error-span" id="rent-form-error">&nbsp;</span>
                 <br/>
                 <span>od</span>
-                <input type="datetime-local" id="rent-form-date-from" class="form-first-element"/>
+                <input type="datetime-local" id="rent-form-date-from" name="rent-form-date-from" class="form-first-element"/>
                 <br/>
                 <span>do</span>
-                <input type="datetime-local" id="rent-form-date-to"/>
+                <input type="datetime-local" id="rent-form-date-to" name="rent-form-date-to"/>
                 <br/>
-                <h4>Wynajęte w terminach</h4>
-                <p>04.05.2023 13:00 - 06.05.2023 13:00</p>
-                <p>23.06.2023 17:00 - 24.06.2023 17:00</p>
+                <p id="rent-form-disclaimer">Cena naliczana od każdej zaczętej doby</p>
+                <?php
+                    $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
+
+                    $query = mysqli_query($conn, '
+                    SELECT cars.id, rent_data.dateFrom, rent_data.dateUntil
+                    FROM users
+                    INNER JOIN rent_data ON users.id = rent_data.userId
+                    INNER JOIN cars ON cars.id = rent_data.carId
+                    WHERE cars.id = '.$car_id.' AND rent_data.dateUntil > UNIX_TIMESTAMP(CURRENT_TIMESTAMP)
+                    ORDER BY rent_data.dateFrom ASC;
+                    ');
+
+                    if(mysqli_num_rows($query) > 0){
+                        echo "<h4>Wynajęte w terminach</h4>";
+                        echo "<div id='rent-form-dates'>";
+                    }
+
+                    while($row = mysqli_fetch_array($query)){
+                        $dateFrom = date("d.m.Y H:i", $row["dateFrom"]);
+                        $dateUntil = date("d.m.Y H:i", $row["dateUntil"]);
+                        echo "<p>".$dateFrom." - ".$dateUntil."</p>";
+                    }
+
+                    if(mysqli_num_rows($query) > 0){
+                        echo "</div>";
+                    }
+
+                    mysqli_close($conn);
+                ?>
                 <h4>Pakiety dodatkowe</h4>
-                <p>Myjnia</p>
-                <button>Wynajmij</button>
+                <div id="rent-form-options">
+                    <label for="rent-form-car-wash"><input type="checkbox" id="rent-form-car-wash" name="rent-form-car-wash"/><span>Myjnia (+50 zł)</span></label>
+                    <label for="rent-form-flowers"><input type="checkbox" id="rent-form-flowers" name="rent-form-flowers"/><span>Kwiaty (+75 zł)</span></label>
+                </div>
+                <div id="rent-form-total">
+                    <h4 id="rent-form-total-text">Suma: <b>0 zł</b></h4>
+                </div>
+                <div id="rent-form-button">
+                    <input type="submit" id="rent-form-submit" name="rent-form-submit" value="Wynajmij"/>
+                </div>
             </form>
         </div>
+        <?php
+            if(isset($_POST["rent-form-submit"])){
+                if(isset($_POST["rent-form-date-from"], $_POST["rent-form-date-to"])){
+                    echo "database query here";
+                    echo("<script>location.href = 'success_rent.php';</script>");
+                    exit();
+                }
+            }
+        ?>
     </main>
     <footer>
         <p>Copyright &copy; 2023 frogcarrental.pl</p>
