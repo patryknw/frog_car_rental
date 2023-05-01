@@ -41,23 +41,23 @@
                                 header("Location: index.html");
                                 exit;
                             } else{
-                                echo "<span id='error-span'>Niepoprawne hasło</span>";
+                                echo "<span class='error-span'>Niepoprawne hasło</span>";
                             }
 
                             mysqli_close($conn);
                         } else{
-                            echo "<span id='error-span'>Brak konta o podanym adresie e-mail</span>";
+                            echo "<span class='error-span'>Brak konta o podanym adresie e-mail</span>";
                         }
 
                     } elseif(empty($_POST["email"]) && empty($_POST["password"])){
-                        echo "<span id='error-span'>Uzupełnij wszystkie dane</span>";
+                        echo "<span class='error-span'>Uzupełnij wszystkie dane</span>";
                     } elseif(empty($_POST["email"])){
-                        echo "<span id='error-span'>Uzupełnij adres e-mail</span>";
+                        echo "<span class='error-span'>Uzupełnij adres e-mail</span>";
                     } elseif(empty($_POST["password"])){
-                        echo "<span id='error-span'>Uzupełnij hasło</span>";
+                        echo "<span class='error-span'>Uzupełnij hasło</span>";
                     }
                 }
-                echo "<span id='error-span'>&nbsp;</span>";
+                echo "<span class='error-span'>&nbsp;</span>";
                 echo "<br/>";
             ?>
             <input type="email" id="email" name="email" class="form-first-element" placeholder="E-Mail"/>

@@ -78,13 +78,13 @@
                             if(isset($_POST["business"])){
                                 if(!empty($_POST["nip"]) && !empty($_POST["regon"])){
                                     if(checkIfExists("email", $_POST["email"])){
-                                        echo "<span id='error-span'>Konto z tym e-mailem już istnieje</span>";
+                                        echo "<span class='error-span'>Konto z tym e-mailem już istnieje</span>";
                                     } else{
                                         if(checkIfExists("nip", $_POST["nip"])){
-                                            echo "<span id='error-span'>Konto z tym numerem NIP już istnieje</span>";
+                                            echo "<span class='error-span'>Konto z tym numerem NIP już istnieje</span>";
                                         } else{
                                             if(checkIfExists("regon", $_POST["regon"])){
-                                                echo "<span id='error-span'>Konto z tym numerem REGON już istnieje</span>";
+                                                echo "<span class='error-span'>Konto z tym numerem REGON już istnieje</span>";
                                             } else{
                                                 addToDB(TRUE);
                                                 header("Location: success.php");
@@ -93,11 +93,11 @@
                                         }
                                     }
                                 } else{
-                                    echo "<span id='error-span'>Uzupełnij numery NIP i REGON</span>";
+                                    echo "<span class='error-span'>Uzupełnij numery NIP i REGON</span>";
                                 }
                             } else{
                                 if(checkIfExists("email", $_POST["email"])){
-                                    echo "<span id='error-span'>Konto z tym e-mailem już istnieje</span>";
+                                    echo "<span class='error-span'>Konto z tym e-mailem już istnieje</span>";
                                 } else{
                                     addToDB(FALSE);
                                     header("Location: success.php");
@@ -105,14 +105,14 @@
                                 }
                             }
                         } else{
-                            echo "<span id='error-span'>Hasła się nie zgadzają</span>";
+                            echo "<span class='error-span'>Hasła się nie zgadzają</span>";
                         }
                     } else{
-                        echo "<span id='error-span'>Uzupełnij wszystkie dane</span>";
+                        echo "<span class='error-span'>Uzupełnij wszystkie dane</span>";
                     }
                     mysqli_close($conn);
                 }
-                echo "<span id='error-span'>&nbsp;</span>";
+                echo "<span class='error-span'>&nbsp;</span>";
                 echo "<br/>";
             ?>
             <input type="text" id="name" name="name" class="form-first-element" placeholder="Imię"/>

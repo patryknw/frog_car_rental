@@ -130,10 +130,21 @@
         </div>
         <div id="rent-form">
             <form onsubmit="return false">
-                <input type="date"/>
+                <div id="rent-form-close"><span id="rent-form-close-span">&#x2715;</span></div>
+                <h3>Wynajmij</h3>
+                <span class="error-span" id="rent-form-error">&nbsp;</span>
                 <br/>
-                <input type="date"/>
+                <span>od</span>
+                <input type="datetime-local" id="rent-form-date-from" class="form-first-element"/>
                 <br/>
+                <span>do</span>
+                <input type="datetime-local" id="rent-form-date-to"/>
+                <br/>
+                <h4>Wynajęte w terminach</h4>
+                <p>04.05.2023 13:00 - 06.05.2023 13:00</p>
+                <p>23.06.2023 17:00 - 24.06.2023 17:00</p>
+                <h4>Pakiety dodatkowe</h4>
+                <p>Myjnia</p>
                 <button>Wynajmij</button>
             </form>
         </div>
