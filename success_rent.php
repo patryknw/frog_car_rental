@@ -29,12 +29,12 @@
         </div>
     </header>
     <main>
-        <form>
-            <h2>Sukces</h2>
-            <h4 id="success">Pomyślnie wynajęto auto!</h4>
-            <p>Aby wyświetlić szczegóły wynajmu, przejdź do zakładki</p>
-            <p><a id="register-link" href="account.php">Moje konto</a></p>
-        </form>
+        <div id="success">
+            <h2>Gratulacje</h2>
+            <h4>Pomyślnie wynajęto auto!</h4>
+            <h4>Aby wyświetlić szczegóły wynajmu, przejdź do zakładki<br/><a id="register-link" href="account.php">Moje konto</a></h4>
+            <h4>Dziękujemy za korzystanie z usług Frog Car Rental.<br/>Miłego za*******ania :)</h4>
+        </div>
     </main>
     <footer>
         <p>Copyright &copy; 2023 frogcarrental.pl</p>

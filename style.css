@@ -846,6 +846,10 @@ form #success{
 
 #account h2{
     margin-bottom: 12px;
+    text-decoration: underline;
+    text-decoration-color: #d4af37;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
 }
 
 #account h4{
@@ -882,4 +886,32 @@ form #success{
     font-size: 20px;
     margin: 0;
     letter-spacing: 0.03rem;
+}
+
+#success{
+    margin-top: 180px;
+    margin-left: 240px;
+    margin-right: 240px;
+    text-align: center;
+}
+
+#success h2{
+    margin-bottom: 60px;
+    text-decoration: underline;
+    text-decoration-color: #d4af37;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+#success h3{
+    margin: 22px 0 22px 0;
+    font-size: 24px;
+    font-family: "Oswald-Light";
+    font-weight: normal;
+    letter-spacing: normal;
+}
+
+#success h4{
+    margin: 40px 0 40px 0;
+    font-size: 30px;
 }

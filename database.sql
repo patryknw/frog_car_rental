@@ -141,7 +141,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2017,
-    1100
+    1300
 );
 
 INSERT INTO cars VALUES(
@@ -277,6 +277,36 @@ INSERT INTO cars VALUES(
     "petrol",
     2023,
     1600
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "BMW",
+    "M8",
+    591,
+    3.2,
+    305,
+    "4.4 V8 (Twin-Turbo)",
+    "AWD",
+    "automatic_sequential",
+    "petrol",
+    2023,
+    1600
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "Ford",
+    "Mustang",
+    421,
+    4.8,
+    250,
+    "5.0 V8",
+    "RWD",
+    "manual",
+    "petrol",
+    2018,
+    1100
 );
 
 INSERT INTO rent_data VALUES(

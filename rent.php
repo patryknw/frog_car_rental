@@ -196,6 +196,8 @@
                             }
 
                             mysqli_close($conn);
+                        } else{
+                            echo "<label><span>&nbsp;</span></label>";
                         }
                     ?>
                 </div>
