@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS frog_car_rental;
 CREATE DATABASE frog_car_rental CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE users(
@@ -7,8 +8,8 @@ CREATE TABLE users(
 	email VARCHAR(128) UNIQUE,
 	password VARCHAR(128),
 	is_business BOOLEAN,
-	nip INT UNIQUE,
-	regon INT UNIQUE
+	nip VARCHAR(128) UNIQUE,
+	regon VARCHAR(128) UNIQUE
 );
 
 CREATE TABLE cars(
@@ -27,65 +28,16 @@ CREATE TABLE cars(
 );
 
 CREATE TABLE rent_data(
-    rentId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userId INT NOT NULL,
-    carId INT NOT NULL,
-    dateFrom INT,
-    dateUntil INT,
+    rent_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    car_id INT NOT NULL,
+    date_from INT,
+    date_until INT,
     car_wash BOOLEAN,
     flowers BOOLEAN,
-    FOREIGN KEY (userId) REFERENCES users(id),
-    FOREIGN KEY (carId) REFERENCES cars(id)
-);
-
-INSERT INTO rent_data VALUES(
-    NULL,
-    1,
-    5,
-    1680818400,
-    1685570400,
-    1,
-    1
-);
-
-INSERT INTO rent_data VALUES(
-    NULL,
-    3,
-    2,
-    1682892000,
-    1683410400,
-    0,
-    0
-);
-
-INSERT INTO rent_data VALUES(
-    NULL,
-    3,
-    3,
-    1684620000,
-    1684792800,
-    1,
-    0
-);
-
-INSERT INTO rent_data VALUES(
-    NULL,
-    4,
-    2,
-    1683842400,
-    1684188000,
-    0,
-    1
-);
-
-INSERT INTO rent_data VALUES(
-    NULL,
-    4,
-    3,
-    1681941600,
-    1682028000,
-    0,
-    0
+    business BOOLEAN,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (car_id) REFERENCES cars(id)
 );
 
 INSERT INTO users VALUES(
@@ -95,8 +47,41 @@ INSERT INTO users VALUES(
     "patryk.nowak@zs1piaseczno.pl",
     "zaq1@WSX",
     1,
-    0694201337,
-    420133769
+    "0694201337",
+    "420133769"
+);
+
+INSERT INTO users VALUES(
+    NULL,
+    "Zbigniew",
+    "Stonoga",
+    "zbigniew.stonoga@gmail.com",
+    "zaq1@WSX",
+    0,
+    NULL,
+    NULL
+);
+
+INSERT INTO users VALUES(
+    NULL,
+    "Szymon",
+    "Besser",
+    "szymool@gmail.com",
+    "zaq1@WSX",
+    0,
+    NULL,
+    NULL
+);
+
+INSERT INTO users VALUES(
+    NULL,
+    "Konrad",
+    "Małaczek",
+    "konrad.malaczek@gmail.com",
+    "zaq1@WSX",
+    1,
+    "6739284492",
+    "320539218"
 );
 
 INSERT INTO cars VALUES(
@@ -106,11 +91,11 @@ INSERT INTO cars VALUES(
     420,
     4.8,
     290,
-    "4L V8",
+    "4.0 V8",
     "RWD",
     "manual",
     "petrol",
-    2013,
+    2011,
     1200
 );
 
@@ -121,12 +106,12 @@ INSERT INTO cars VALUES(
     557,
     2.7,
     328,
-    "3.8L V6 (Twin Turbo)",
+    "3.8 V6 (Twin Turbo)",
     "AWD",
     "automatic_sequential",
     "petrol",
     2022,
-    1800
+    1900
 );
 
 INSERT INTO cars VALUES(
@@ -140,8 +125,8 @@ INSERT INTO cars VALUES(
     "AWD",
     "automatic_sequential",
     "petrol",
-    2019,
-    1600
+    2018,
+    1700
 );
 
 INSERT INTO cars VALUES(
@@ -171,7 +156,7 @@ INSERT INTO cars VALUES(
     "sequential",
     "petrol",
     2021,
-    2500
+    3000
 );
 
 INSERT INTO cars VALUES(
@@ -186,7 +171,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2020,
-    2200
+    2500
 );
 
 INSERT INTO cars VALUES(
@@ -216,22 +201,22 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2018,
-    2400
+    2600
 );
 
 INSERT INTO cars VALUES(
     NULL,
     "Ferrari",
-    "458 Italia",
-    570,
-    3.5,
+    "488 Pista",
+    710,
+    2.9,
     340,
-    "4.5 V8",
+    "3.9 V8 (Twin-Turbo)",
     "RWD",
-    "sequential",
+    "automatic_sequential",
     "petrol",
-    2015,
-    2300
+    2019,
+    2800
 );
 
 INSERT INTO cars VALUES(
@@ -247,4 +232,104 @@ INSERT INTO cars VALUES(
     "petrol",
     2016,
     1000
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "Lamborghini",
+    "Huracan",
+    631,
+    2.9,
+    328,
+    "5.2 V10",
+    "AWD",
+    "automatic_sequential",
+    "petrol",
+    2020,
+    2400
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "Bugatti",
+    "Chiron",
+    1479,
+    2.4,
+    420,
+    "8.0 W16 (Quad-Turbo)",
+    "AWD",
+    "automatic_sequential",
+    "petrol",
+    2022,
+    5000
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "Audi",
+    "RS7",
+    592,
+    3.5,
+    306,
+    "4.0 V8 (Twin-Turbo)",
+    "AWD",
+    "automatic_sequential",
+    "petrol",
+    2023,
+    1600
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    1,
+    5,
+    1680818400,
+    1685570400,
+    1,
+    1,
+    1
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    3,
+    2,
+    1682892000,
+    1683410400,
+    0,
+    0,
+    0
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    3,
+    3,
+    1684620000,
+    1684792800,
+    1,
+    0,
+    0
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    4,
+    2,
+    1683842400,
+    1684188000,
+    0,
+    1,
+    0
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    4,
+    3,
+    1681941600,
+    1682028000,
+    0,
+    0,
+    1
 );

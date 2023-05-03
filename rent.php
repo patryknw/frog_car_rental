@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,9 +13,15 @@
 <body>
     <header>
         <div id="header-links">
-            <a href="index.html">O nas</a>
+            <a href="index.php">O nas</a>
             <a href="cars.php">Samochody</a>
-            <a href="login.php">Zaloguj się</a>
+            <?php
+                if(isset($_SESSION["email"])){
+                    echo '<a href="account.php">Konto</a>';
+                } else{
+                    echo '<a href="login.php">Zaloguj się</a>';
+                }
+            ?>
         </div>
         <div id="header-socials">
             <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
@@ -136,7 +145,7 @@
                 <span class="error-span" id="rent-form-error">&nbsp;</span>
                 <br/>
                 <span>od</span>
-                <input type="datetime-local" id="rent-form-date-from" name="rent-form-date-from" class="form-first-element"/>
+                <input type="datetime-local" id="rent-form-date-from" name="rent-form-date-from" class="first-element"/>
                 <br/>
                 <span>do</span>
                 <input type="datetime-local" id="rent-form-date-to" name="rent-form-date-to"/>
@@ -144,14 +153,13 @@
                 <p id="rent-form-disclaimer">Cena naliczana od każdej zaczętej doby</p>
                 <?php
                     $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
-
                     $query = mysqli_query($conn, '
-                    SELECT cars.id, rent_data.dateFrom, rent_data.dateUntil
+                    SELECT cars.id, rent_data.date_from, rent_data.date_until
                     FROM users
-                    INNER JOIN rent_data ON users.id = rent_data.userId
-                    INNER JOIN cars ON cars.id = rent_data.carId
-                    WHERE cars.id = '.$car_id.' AND rent_data.dateUntil > UNIX_TIMESTAMP(CURRENT_TIMESTAMP)
-                    ORDER BY rent_data.dateFrom ASC;
+                    INNER JOIN rent_data ON users.id = rent_data.user_id
+                    INNER JOIN cars ON cars.id = rent_data.car_id
+                    WHERE cars.id = '.$car_id.' AND rent_data.date_until > UNIX_TIMESTAMP(CURRENT_TIMESTAMP)
+                    ORDER BY rent_data.date_from ASC;
                     ');
 
                     if(mysqli_num_rows($query) > 0){
@@ -160,9 +168,9 @@
                     }
 
                     while($row = mysqli_fetch_array($query)){
-                        $dateFrom = date("d.m.Y H:i", $row["dateFrom"]);
-                        $dateUntil = date("d.m.Y H:i", $row["dateUntil"]);
-                        echo "<p>".$dateFrom." - ".$dateUntil."</p>";
+                        $date_from = date("d.m.Y H:i", $row["date_from"]);
+                        $date_until = date("d.m.Y H:i", $row["date_until"]);
+                        echo "<p>".$date_from." - ".$date_until."</p>";
                     }
 
                     if(mysqli_num_rows($query) > 0){
@@ -171,10 +179,25 @@
 
                     mysqli_close($conn);
                 ?>
-                <h4>Pakiety dodatkowe</h4>
+                <h4>Opcje wynajmu</h4>
                 <div id="rent-form-options">
                     <label for="rent-form-car-wash"><input type="checkbox" id="rent-form-car-wash" name="rent-form-car-wash"/><span>Myjnia (+50 zł)</span></label>
                     <label for="rent-form-flowers"><input type="checkbox" id="rent-form-flowers" name="rent-form-flowers"/><span>Kwiaty (+75 zł)</span></label>
+                    <?php
+                        if(isset($_SESSION["email"])){
+                            $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
+                            $query = mysqli_query($conn, 'SELECT is_business FROM users WHERE email = "'.$_SESSION["email"].'";');
+                            $row = mysqli_fetch_array($query);
+
+                            if($row["is_business"] == 1){
+                                echo '<label for="rent-form-business"><input type="checkbox" id="rent-form-business" name="rent-form-business" checked/><span>Wynajmij na firmę</span></label>';
+                            } else{
+                                echo "<label><span>&nbsp;</span></label>";
+                            }
+
+                            mysqli_close($conn);
+                        }
+                    ?>
                 </div>
                 <div id="rent-form-total">
                     <h4 id="rent-form-total-text">Suma: <b>0 zł</b></h4>

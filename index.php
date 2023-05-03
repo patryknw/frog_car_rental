@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,9 +13,15 @@
 <body>
     <header>
         <div id="header-links">
-            <a href="index.html">O nas</a>
+            <a href="index.php">O nas</a>
             <a href="cars.php">Samochody</a>
-            <a href="login.php">Zaloguj się</a>
+            <?php
+                if(isset($_SESSION["email"])){
+                    echo '<a href="account.php">Konto</a>';
+                } else{
+                    echo '<a href="login.php">Zaloguj się</a>';
+                }
+            ?>
         </div>
         <div id="header-socials">
             <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
@@ -58,7 +67,7 @@
             <h4>Nie wiesz co wybrać? Polecamy nasz bestseller – <b>BMW M3 E92</b> – legendarne auto „Bogusia z M3”, czyli Roberta „Froga” Nogala.</h4>
             <div id="bestseller-container">
                 <div id="bestseller-description">
-                    <p><b>BMW M3 E92 (2013)</b></p>
+                    <p><b>BMW M3 E92 (2011)</b></p>
                     <table>
                         <tr>
                             <td><p>moc</p></td>

@@ -14,13 +14,19 @@ try{
     rent_dates = document.querySelector("#rent-form-dates").querySelectorAll("p");
 } catch{}
 let form_submit = document.querySelector("#rent-form-submit");
+let login_account_text = document.querySelector("#header-links").querySelectorAll("a")[2];
 
 let clicked_inside_form = false;
 let can_click = false;
 
 rent_button.addEventListener("click", () => {
-    form_window.style.visibility = "visible";
-    form_window.style.opacity = 1;
+    if(login_account_text.innerText == "Konto"){
+        form_window.style.visibility = "visible";
+        form_window.style.opacity = 1;
+    } else{
+        let url = window.location.href.split("?auto=")[1];
+        window.location.href = `login.php?redirect=${url}`;
+    }
 });
 
 form_panel.addEventListener("click", () => {

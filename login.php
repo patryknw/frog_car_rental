@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -9,9 +12,16 @@
 <body>
     <header>
         <div id="header-links">
-            <a href="index.html">O nas</a>
+            <a href="index.php">O nas</a>
             <a href="cars.php">Samochody</a>
-            <a href="login.php">Zaloguj się</a>
+            <?php
+                if(isset($_SESSION["email"])){
+                    header("Location: index.php");
+                    echo '<a href="account.php">Konto</a>';
+                } else{
+                    echo '<a href="login.php">Zaloguj się</a>';
+                }
+            ?>
         </div>
         <div id="header-socials">
             <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
@@ -38,8 +48,14 @@
                             $row = mysqli_fetch_array($res);
 
                             if($_POST["password"] == $row["password"]){
-                                header("Location: index.html");
-                                exit;
+                                $_SESSION["email"] = $_POST["email"];
+                                if(isset($_GET["redirect"])){
+                                    header("Location: rent.php?auto=".$_GET["redirect"]."");
+                                    exit;
+                                } else{
+                                    header("Location: index.php");
+                                    exit;
+                                }
                             } else{
                                 echo "<span class='error-span'>Niepoprawne hasło</span>";
                             }
