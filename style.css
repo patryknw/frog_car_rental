@@ -888,6 +888,29 @@ form #success{
     letter-spacing: 0.03rem;
 }
 
+.account-car-history{
+    font-size: 28px;
+    margin: 0 0 8px 0;
+}
+
+.account-car-history a{
+    color: rgba(0, 0, 0, 0.7) !important;
+    text-decoration: none !important;
+    transition: color .2s ease-in-out;
+}
+
+.account-car-history a:hover{
+    color: #d4af37 !important;
+    transition: color .2s ease-in-out;
+}
+
+.account-date-history{
+    font-size: 20px;
+    margin: 0;
+    letter-spacing: 0.03rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 #success{
     margin-top: 180px;
     margin-left: 240px;

@@ -84,6 +84,17 @@ INSERT INTO users VALUES(
     "320539218"
 );
 
+INSERT INTO users VALUES(
+    NULL,
+    "Janusz",
+    "Korwin-Mikke",
+    "korwin@gmail.com",
+    "zaq1@WSX",
+    1,
+    "6557389231",
+    "547338980"
+);
+
 INSERT INTO cars VALUES(
     NULL,
     "BMW",
@@ -111,22 +122,22 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2022,
-    1900
+    2000
 );
 
 INSERT INTO cars VALUES(
     NULL,
     "Audi",
     "R8 V10",
-    525,
-    3.8,
-    316,
+    602,
+    3.2,
+    330,
     "5.2 V10",
     "AWD",
     "automatic_sequential",
     "petrol",
     2018,
-    1700
+    2100
 );
 
 INSERT INTO cars VALUES(
@@ -141,7 +152,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2017,
-    1300
+    1400
 );
 
 INSERT INTO cars VALUES(
@@ -178,15 +189,15 @@ INSERT INTO cars VALUES(
     NULL,
     "Porsche",
     "911 GT3 RS",
-    525,
+    513,
     3.2,
-    296,
+    312,
     "4.0 B6",
     "RWD",
     "automatic_sequential",
     "petrol",
     2019,
-    2000
+    2200
 );
 
 INSERT INTO cars VALUES(
@@ -231,7 +242,7 @@ INSERT INTO cars VALUES(
     "manual",
     "petrol",
     2016,
-    1000
+    800
 );
 
 INSERT INTO cars VALUES(
@@ -309,6 +320,21 @@ INSERT INTO cars VALUES(
     1100
 );
 
+INSERT INTO cars VALUES(
+    NULL,
+    "Lexus",
+    "IS F",
+    423,
+    4.6,
+    270,
+    "5.0 V8",
+    "RWD",
+    "automatic_sequential",
+    "petrol",
+    2013,
+    1000
+);
+
 INSERT INTO rent_data VALUES(
     NULL,
     1,
@@ -318,6 +344,17 @@ INSERT INTO rent_data VALUES(
     1,
     1,
     1
+);
+
+INSERT INTO rent_data VALUES(
+    NULL,
+    2,
+    4,
+    1676242800,
+    1676588400,
+    1,
+    0,
+    0
 );
 
 INSERT INTO rent_data VALUES(

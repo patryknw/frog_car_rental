@@ -186,10 +186,13 @@
                     <?php
                         if(isset($_SESSION["email"])){
                             $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
-                            $query = mysqli_query($conn, 'SELECT is_business FROM users WHERE email = "'.$_SESSION["email"].'";');
+                            $query = mysqli_query($conn, 'SELECT id, is_business FROM users WHERE email = "'.$_SESSION["email"].'";');
                             $row = mysqli_fetch_array($query);
 
-                            if($row["is_business"] == 1){
+                            $user_id = $row["id"];
+                            $is_business = $row["is_business"];
+
+                            if($is_business == 1){
                                 echo '<label for="rent-form-business"><input type="checkbox" id="rent-form-business" name="rent-form-business" checked/><span>Wynajmij na firmę</span></label>';
                             } else{
                                 echo "<label><span>&nbsp;</span></label>";
@@ -210,12 +213,88 @@
             </form>
         </div>
         <?php
-            if(isset($_POST["rent-form-submit"])){
-                if(isset($_POST["rent-form-date-from"], $_POST["rent-form-date-to"])){
-                    echo "database query here";
-                    echo("<script>location.href = 'success_rent.php';</script>");
-                    exit();
+            function insertIntoDatabase($user_id, $car_id){
+                if(isset($_POST["rent-form-car-wash"])){
+                    $car_wash = 1;
+                } else{
+                    $car_wash = 0;
                 }
+
+                if(isset($_POST["rent-form-flowers"])){
+                    $flowers = 1;
+                } else{
+                    $flowers = 0;
+                }
+
+                if(isset($_POST["rent-form-business"])){
+                    $business = 1;
+                } else{
+                    $business = 0;
+                }
+
+                $conn2 = mysqli_connect("localhost", "root", "", "frog_car_rental");
+                $query2 = mysqli_query($conn2, '
+                INSERT INTO rent_data VALUES(
+                NULL,
+                '.$user_id.',
+                '.$car_id.',
+                '.strtotime($_POST["rent-form-date-from"]).',
+                '.strtotime($_POST["rent-form-date-to"]).',
+                '.$car_wash.',
+                '.$flowers.',
+                '.$business.'
+                );
+                ');
+                mysqli_close($conn2);
+            }
+
+            if(isset($_POST["rent-form-submit"])){
+                $conn = mysqli_connect("localhost", "root", "", "frog_car_rental");
+                $query = mysqli_query($conn, '
+                SELECT cars.id, rent_data.date_from, rent_data.date_until
+                FROM users
+                INNER JOIN rent_data ON users.id = rent_data.user_id
+                INNER JOIN cars ON cars.id = rent_data.car_id
+                WHERE cars.id = '.$car_id.' AND rent_data.date_until > UNIX_TIMESTAMP(CURRENT_TIMESTAMP)
+                ORDER BY rent_data.date_from ASC;
+                ');
+
+                if(isset($_POST["rent-form-date-from"], $_POST["rent-form-date-to"]) && !empty($_POST["rent-form-date-from"]) && !empty($_POST["rent-form-date-to"])){
+                    $date1 = strtotime($_POST["rent-form-date-from"]);
+                    $date2 = strtotime($_POST["rent-form-date-to"]);
+                    if(($date1 >= time()) && ($date2 >= time())){
+                        if($date1 < $date2){
+                            if((($date2 - $date1) / 60 / 60) >= 24){
+                                if((($date2 - $date1) / 60 / 60) <= 8784){
+                                    if(mysqli_num_rows($query) > 0){
+                                        $i = 0;
+                                        while($row = mysqli_fetch_array($query)){
+                                            $date_from = $row["date_from"];
+                                            $date_until = $row["date_until"];
+
+                                            if(($date1 >= $date_from && $date1 <= $date_until) || ($date2 >= $date_from && $date2 <= $date_until) || ($date1 <= $date_from && $date2 >= $date_until)){
+                                                break;
+                                            } else{
+                                                if($i == (mysqli_num_rows($query) - 1)){
+                                                    insertIntoDatabase($user_id, $car_id);
+                                                    echo("<script>location.href = 'success_rent.php';</script>");
+                                                    exit();
+                                                } else{
+                                                    $i++;
+                                                }
+                                            }
+                                        }
+                                    } else{
+                                        insertIntoDatabase($user_id, $car_id);
+                                        echo("<script>location.href = 'success_rent.php';</script>");
+                                        exit();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                mysqli_close($conn);
             }
         ?>
     </main>
