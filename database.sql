@@ -113,15 +113,15 @@ INSERT INTO cars VALUES(
 INSERT INTO cars VALUES(
     NULL,
     "Nissan",
-    "GTR R35",
-    557,
+    "GT-R R35",
+    565,
     2.7,
     328,
     "3.8 V6 (Twin Turbo)",
     "AWD",
     "automatic_sequential",
     "petrol",
-    2022,
+    2020,
     2000
 );
 
@@ -196,7 +196,7 @@ INSERT INTO cars VALUES(
     "RWD",
     "automatic_sequential",
     "petrol",
-    2019,
+    2021,
     2200
 );
 
@@ -271,7 +271,7 @@ INSERT INTO cars VALUES(
     "AWD",
     "automatic_sequential",
     "petrol",
-    2022,
+    2019,
     5000
 );
 
@@ -287,7 +287,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2023,
-    1600
+    1700
 );
 
 INSERT INTO cars VALUES(
@@ -302,7 +302,7 @@ INSERT INTO cars VALUES(
     "automatic_sequential",
     "petrol",
     2023,
-    1600
+    1700
 );
 
 INSERT INTO cars VALUES(
@@ -333,6 +333,21 @@ INSERT INTO cars VALUES(
     "petrol",
     2013,
     1000
+);
+
+INSERT INTO cars VALUES(
+    NULL,
+    "Porsche",
+    "718 Spyder",
+    414,
+    4.4,
+    301,
+    "4.0 B6",
+    "RWD",
+    "automatic_sequential",
+    "petrol",
+    2022,
+    1500
 );
 
 INSERT INTO rent_data VALUES(
