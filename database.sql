@@ -350,6 +350,21 @@ INSERT INTO cars VALUES(
     1500
 );
 
+INSERT INTO cars VALUES(
+    NULL,
+    "Toyota",
+    "GT86",
+    204,
+    7.6,
+    233,
+    "2.0 H4",
+    "RWD",
+    "manual",
+    "petrol",
+    2016,
+    500
+);
+
 INSERT INTO rent_data VALUES(
     NULL,
     1,

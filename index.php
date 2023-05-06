@@ -33,20 +33,23 @@
     <main>
         <div id="welcome-video">
             <video autoplay muted loop>
-                <source src="frog_nost.mp4" type="video/mp4"/>
+                <source src="videos/frog.mp4" type="video/mp4"/>
             </video>
         </div>
         <div id="welcome">
             <h1><span>Frog</span> Car Rental</h1>
-            <h2>Pobaw się. Zaimponuj kobiecie. Wynajmij luksusowy samochód.</h2>
+            <h2>Pobaw się. Zaimponuj dziewczynie. Wynajmij luksusowy samochód.</h2>
+        </div>
+        <div id="welcome-scroll">
+            <p>></p>
         </div>
         <div id="license-plates-container">
-            <img src="license_plate1.png" class="license-plate"/>
-            <img src="license_plate2.png" class="license-plate"/>
-            <img src="license_plate3.png" class="license-plate"/>
-            <img src="license_plate1.png" class="license-plate"/>
-            <img src="license_plate2.png" class="license-plate"/>
-            <img src="license_plate3.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate1.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate2.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate3.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate1.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate2.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate3.png" class="license-plate"/>
         </div>
         <div id="quote">
             <img src="images/people/frog.jpg"/>
@@ -60,7 +63,7 @@
                     <h3>Spełnij swoje marzenia</h3>
                     <p>Każdy z nas chciałby przejechać się najnowszym Lamborghini Aventador'em po obwodnicy S2 z prędkością trzystu dwudziestu kilometrów na godzinę, słuchając „Manieczki – Surrender” na głośnikach. Bez wyjątku.</p>
                     <p>Już dziś Twoje fantazje mogą się spełnić. U nas wynajmiesz swoje wymarzone, sportowe auto.</p>
-                    <p>Ferrari, Porsche, McLaren'y – mamy je wszystkie. Niezależnie czy chcesz pościgać się z motorkami, poderwać dziewczynę, czy wreszcie poczuć się jak ktoś ważny wchodząc do klubu – u nas znajdziesz coś dla siebie.</p>
+                    <p>Ferrari, Porsche, McLaren'y – mamy je wszystkie. Niezależnie czy chcesz pościgać się z motorkami, poderwać dziewczynę, czy wejść do klubu bez kolejki – u nas znajdziesz coś dla siebie.</p>
                 </div>
             </div>
         </div>

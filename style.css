@@ -174,9 +174,9 @@ main{
 #welcome-video{
     width: 100%;
     height: 100vh;
-    margin-top: 3.5rem;
+    margin: 0;
     overflow: hidden;
-    margin-top: 0;
+    background-color: black;
 }
 
 #welcome-video::before{
@@ -226,6 +226,26 @@ main{
     color: rgba(255, 255, 255, 0.7);
 }
 
+#welcome-scroll{
+    margin-top: 90vh;
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    transition: opacity 0.3s;
+}
+
+#welcome-scroll p{
+    color: rgba(255, 255, 255, 0.33);
+    font-family: "Oswald-ExtraLight";
+    font-size: 4vh;
+    cursor: default;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+}
+
 #license-plates-container{
     display: flex;
     flex-direction: row;
@@ -240,7 +260,7 @@ main{
 
 .license-plate{
     border-radius: 1vh;
-    width: 50vh;
+    width: 55vh;
     animation: marquee 10s linear infinite;
 }
 

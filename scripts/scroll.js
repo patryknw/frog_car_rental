@@ -1,6 +1,7 @@
 let header = document.querySelector("header");
 let header_links = document.querySelector("#header-links").querySelectorAll("a");
 let header_icons = document.querySelector("#header-socials").querySelectorAll(".header-icon-div");
+let scroll_icon = document.querySelector("#welcome-scroll");
 
 function switchToDark(){
     header.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
@@ -11,6 +12,7 @@ function switchToDark(){
     header_icons.forEach(element => {
         element.style.filter = "invert(1)";
         element.style.webkitFilter = "invert(1)";
+        element.style.opacity = 0.9;
     });
 }
 
@@ -24,14 +26,16 @@ function switchToLight(){
     header_icons.forEach(element => {
         element.style.filter = "invert(0)";
         element.style.webkitFilter = "invert(0)";
+        element.style.opacity = 1;
     });
 }
 
 let isDarkMode = true;
+let isShown = true;
 switchToDark();
 
-document.addEventListener("scroll", () => {
-    if(window.scrollY >= 1000){
+function updateHeaderColor(){
+    if(window.scrollY >= window.innerHeight){
         if(isDarkMode){
             switchToLight();
             isDarkMode = false;
@@ -42,4 +46,23 @@ document.addEventListener("scroll", () => {
             isDarkMode = true;
         }
     }
-});
+
+    if(window.scrollY >= (window.innerHeight / 4)){
+        if(isShown){
+            scroll_icon.style.opacity = 0;
+            setTimeout(() => {
+                scroll_icon.style.visibility = "hidden";
+            }, 300);
+            isShown = false;
+        }
+    } else{
+        if(!isShown){
+            scroll_icon.style.opacity = 1;
+            scroll_icon.style.visibility = "visible";
+            isShown = true;
+        }
+    }
+}
+
+updateHeaderColor();
+document.addEventListener("scroll", updateHeaderColor);
