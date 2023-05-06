@@ -100,11 +100,11 @@ INSERT INTO cars VALUES(
     "BMW",
     "M3 E92",
     420,
-    4.8,
+    4.6,
     290,
     "4.0 V8",
     "RWD",
-    "manual",
+    "sequential",
     "petrol",
     2011,
     1200

@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
     <link rel="stylesheet" href="style.css"/>
     <script src="scripts/gallery.js" defer></script>
+    <script src="scripts/scroll.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,15 +25,28 @@
             ?>
         </div>
         <div id="header-socials">
-            <div id="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
-            <div id="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg"/></a></div>
-            <div id="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg"/></a></div>
+            <div class="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
+            <div class="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg"/></a></div>
+            <div class="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg"/></a></div>
         </div>
     </header>
     <main>
+        <div id="welcome-video">
+            <video autoplay muted loop>
+                <source src="frog_nost.mp4" type="video/mp4"/>
+            </video>
+        </div>
         <div id="welcome">
-            <h1>Frog Car Rental</h1>
-            <h2>Zaimponuj kobiecie. Wynajmij luksusowy samochód.</h2>
+            <h1><span>Frog</span> Car Rental</h1>
+            <h2>Pobaw się. Zaimponuj kobiecie. Wynajmij luksusowy samochód.</h2>
+        </div>
+        <div id="license-plates-container">
+            <img src="license_plate1.png" class="license-plate"/>
+            <img src="license_plate2.png" class="license-plate"/>
+            <img src="license_plate3.png" class="license-plate"/>
+            <img src="license_plate1.png" class="license-plate"/>
+            <img src="license_plate2.png" class="license-plate"/>
+            <img src="license_plate3.png" class="license-plate"/>
         </div>
         <div id="quote">
             <img src="images/people/frog.jpg"/>
@@ -75,7 +89,7 @@
                         </tr>
                         <tr>
                             <td><p>0-100</p></td>
-                            <td><p><b>4,8 s</b></p></td>
+                            <td><p><b>4,6 s</b></p></td>
                         </tr>
                         <tr>
                             <td><p>prędkość</p></td>
