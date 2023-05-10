@@ -47,7 +47,7 @@
                             $res = mysqli_query($conn, $query);
                             $row = mysqli_fetch_array($res);
 
-                            if($_POST["password"] == $row["password"]){
+                            if(hash("sha512", $_POST["password"]) == $row["password"]){
                                 $_SESSION["email"] = $_POST["email"];
                                 if(isset($_GET["redirect"])){
                                     header("Location: rent.php?auto=".$_GET["redirect"]."");

@@ -3,26 +3,26 @@ CREATE DATABASE frog_car_rental CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
 
 CREATE TABLE users(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(128),
-	surname VARCHAR(128),
-	email VARCHAR(128) UNIQUE,
-	password VARCHAR(128),
+    name VARCHAR(255),
+	surname VARCHAR(255),
+	email VARCHAR(255) UNIQUE,
+	password VARCHAR(255),
 	is_business BOOLEAN,
-	nip VARCHAR(128) UNIQUE,
-	regon VARCHAR(128) UNIQUE
+	nip CHAR(10) UNIQUE,
+	regon CHAR(9) UNIQUE
 );
 
 CREATE TABLE cars(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    brand VARCHAR(128),
-	model VARCHAR(128),
+    brand VARCHAR(255),
+	model VARCHAR(255),
 	horsepower INT,
 	acceleration DECIMAL(2, 1),
 	top_speed INT,
-	engine VARCHAR(128),
-    drivetrain VARCHAR(128),
-    transmission VARCHAR(128),
-    fuel VARCHAR(128),
+	engine VARCHAR(255),
+    drivetrain VARCHAR(255),
+    transmission VARCHAR(255),
+    fuel VARCHAR(255),
 	year INT,
 	price INT
 );
@@ -45,7 +45,7 @@ INSERT INTO users VALUES(
     "Patryk",
     "Nowak",
     "patryk.nowak@zs1piaseczno.pl",
-    "zaq1@WSX",
+    "3c6e3550e97b872da67938d34f3740f11c94102a5bfd3ddd4501820e980b5ca778c2fbe88d2695affe9a53bb5064c5a8a717360db3ecb87e2c0c74feea2f37a8",
     1,
     "0694201337",
     "420133769"
@@ -56,7 +56,7 @@ INSERT INTO users VALUES(
     "Zbigniew",
     "Stonoga",
     "zbigniew.stonoga@gmail.com",
-    "zaq1@WSX",
+    "3c6e3550e97b872da67938d34f3740f11c94102a5bfd3ddd4501820e980b5ca778c2fbe88d2695affe9a53bb5064c5a8a717360db3ecb87e2c0c74feea2f37a8",
     0,
     NULL,
     NULL
@@ -67,7 +67,7 @@ INSERT INTO users VALUES(
     "Szymon",
     "Besser",
     "szymool@gmail.com",
-    "zaq1@WSX",
+    "3c6e3550e97b872da67938d34f3740f11c94102a5bfd3ddd4501820e980b5ca778c2fbe88d2695affe9a53bb5064c5a8a717360db3ecb87e2c0c74feea2f37a8",
     0,
     NULL,
     NULL
@@ -78,7 +78,7 @@ INSERT INTO users VALUES(
     "Konrad",
     "Małaczek",
     "konrad.malaczek@gmail.com",
-    "zaq1@WSX",
+    "3c6e3550e97b872da67938d34f3740f11c94102a5bfd3ddd4501820e980b5ca778c2fbe88d2695affe9a53bb5064c5a8a717360db3ecb87e2c0c74feea2f37a8",
     1,
     "6739284492",
     "320539218"
@@ -89,7 +89,7 @@ INSERT INTO users VALUES(
     "Janusz",
     "Korwin-Mikke",
     "korwin@gmail.com",
-    "zaq1@WSX",
+    "3c6e3550e97b872da67938d34f3740f11c94102a5bfd3ddd4501820e980b5ca778c2fbe88d2695affe9a53bb5064c5a8a717360db3ecb87e2c0c74feea2f37a8",
     1,
     "6557389231",
     "547338980"

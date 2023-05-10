@@ -44,7 +44,7 @@
                                 "'.$_POST["name"].'",
                                 "'.$_POST["surname"].'",
                                 "'.$_POST["email"].'",
-                                "'.$_POST["password"].'",
+                                "'.hash('sha512', $_POST["password"]).'",
                                 1,
                                 "'.$_POST["nip"].'",
                                 "'.$_POST["regon"].'"
@@ -57,7 +57,7 @@
                                 "'.$_POST["name"].'",
                                 "'.$_POST["surname"].'",
                                 "'.$_POST["email"].'",
-                                "'.$_POST["password"].'",
+                                "'.hash('sha512', $_POST["password"]).'",
                                 0,
                                 NULL,
                                 NULL

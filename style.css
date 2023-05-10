@@ -156,7 +156,7 @@ h3{
     font-family: "Oswald-ExtraLight";
     font-size: 32px;
     margin: 0;
-    letter-spacing: 0.07rem;
+    letter-spacing: 0.03rem;
 }
 
 h4{
@@ -270,8 +270,7 @@ main{
 }
 
 #quote{
-    margin-top: 260px;
-    margin-left: 50vh;
+    margin: 260px auto 0 auto;
     width: 50%;
     text-align: center;
 }
@@ -615,8 +614,7 @@ form #success{
     font-family: "Oswald-Light";
     font-size: 32px;
     color: green;
-    margin-top: 60px;
-    margin-bottom: 72px;
+    margin: 60px 0 72px 0;
 }
 
 #register-link{
