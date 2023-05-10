@@ -4,9 +4,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Pobaw się. Zaimponuj dziewczynie. Wynajmij luksusowy samochód. Sprawdź naszą ofertę - na pewno znajdziesz coś dla siebie."/>
+    <meta name="author" content="Patryk Nowak">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Frog Car Rental</title>
-    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="scripts/gallery.js" defer></script>
     <script src="scripts/scroll.js" defer></script>
@@ -25,9 +28,9 @@
             ?>
         </div>
         <div id="header-socials">
-            <div class="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
-            <div class="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg"/></a></div>
-            <div class="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg"/></a></div>
+            <div class="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg" alt="YouTube"/></a></div>
+            <div class="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg" alt="Facebook"/></a></div>
+            <div class="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg" alt="Instagram"/></a></div>
         </div>
     </header>
     <main>
@@ -44,21 +47,21 @@
             <p>></p>
         </div>
         <div id="license-plates-container">
-            <img src="images/license_plates/license_plate1.png" class="license-plate"/>
-            <img src="images/license_plates/license_plate2.png" class="license-plate"/>
-            <img src="images/license_plates/license_plate3.png" class="license-plate"/>
-            <img src="images/license_plates/license_plate1.png" class="license-plate"/>
-            <img src="images/license_plates/license_plate2.png" class="license-plate"/>
-            <img src="images/license_plates/license_plate3.png" class="license-plate"/>
+            <img src="images/license_plates/license_plate1.png" class="license-plate" alt="S2 YBKI"/>
+            <img src="images/license_plates/license_plate2.png" class="license-plate" alt="M3 BOGUS"/>
+            <img src="images/license_plates/license_plate3.png" class="license-plate" alt="W8 XXX"/>
+            <img src="images/license_plates/license_plate1.png" class="license-plate" alt="S2 YBKI"/>
+            <img src="images/license_plates/license_plate2.png" class="license-plate" alt="M3 BOGUS"/>
+            <img src="images/license_plates/license_plate3.png" class="license-plate" alt="W8 XXX"/>
         </div>
         <div id="quote">
-            <img src="images/people/frog.jpg"/>
+            <img src="images/people/frog.jpg" alt="Robert Nogal"/>
             <h3>Naszymi samochodami możesz sobie po*******alać. Nie ma limitu mocy, ani kilometrów. Płacisz i jeździsz tyle, na ile wynająłeś auto. To jest nasza wizja.</h3>
             <h4>— Robert „Frog” Nogal, właściciel</h4>
         </div>
         <div id="gallery">
             <div id="gallery-container">
-                <img src="images/gallery/1.jpg" id="gallery-photos"/>
+                <img src="images/gallery/1.jpg" id="gallery-photos" alt="Galeria"/>
                 <div id="gallery-description">
                     <h3>Spełnij swoje marzenia</h3>
                     <p>Każdy z nas chciałby przejechać się najnowszym Lamborghini Aventador'em po obwodnicy S2 z prędkością trzystu dwudziestu kilometrów na godzinę, słuchając „Manieczki – Surrender” na głośnikach. Bez wyjątku.</p>
@@ -105,24 +108,24 @@
                     </table>
                     <button onclick="window.location.href = 'rent.php?auto=BMW_M3_E92';">Wynajmij</button>
                 </div>
-                <img src="images/other/m3.jpg"/>
+                <img src="images/other/m3.jpg" alt="BMW M3 E92"/>
             </div>
         </div>
         <div id="opinions">
             <h2>Opinie naszych klientów</h2>
             <div id="opinions-container">
                 <div class="opinion-card">
-                    <img src="images/people/zbysiu.jpg"/>
+                    <img src="images/people/zbysiu.jpg" alt="Zbigniew Stonoga"/>
                     <h4>Zbigniew Stonoga</h4>
                     <p>Zawsze kiedy jadę po zioło, korzystam z usług Frog Car Rental. Trzeba jednak uważać, bo Mercedes S klasy przy 250 jest trochę podsterowny.</p>
                 </div>
                 <div class="opinion-card">
-                    <img src="images/people/szymool.jpg"/>
+                    <img src="images/people/szymool.jpg" alt="Szymon Besser"/>
                     <h4>Szymon Besser</h4>
                     <p>Sportowe samochody są najlepszym sposobem na wyrwanie dziewczyny, a Frog Car Rental ma najlepszą ofertę na rynku. Wystarczy tylko podjechać pod Sketch'a i każda laska Twoja.</p>
                 </div>
                 <div class="opinion-card">
-                    <img src="images/people/kondzio.jpg"/>
+                    <img src="images/people/kondzio.jpg" alt="Konrad Małaczek"/>
                     <h4>Konrad Małaczek</h4>
                     <p>Nie mam prawa jazdy, ale i tak wynajmuję auta we Frog Car Rental. Jeśli złapie mnie policja, nie ma mi czego zabrać.</p>
                 </div>

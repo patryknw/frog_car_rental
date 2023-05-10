@@ -4,9 +4,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Pobaw się. Zaimponuj dziewczynie. Wynajmij luksusowy samochód. Sprawdź naszą ofertę - na pewno znajdziesz coś dla siebie."/>
+    <meta name="author" content="Patryk Nowak">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Frog Car Rental</title>
-    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/icons/favicon.ico"/>
     <link rel="stylesheet" href="style.css"/>
     <script src="scripts/rent.js" defer></script>
 </head>
@@ -24,9 +27,9 @@
             ?>
         </div>
         <div id="header-socials">
-            <div class="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg"/></a></div>
-            <div class="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg"/></a></div>
-            <div class="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg"/></a></div>
+            <div class="header-icon-div"><a href="https://www.youtube.com/channel/UCVtZlKSOkcDwc2X5tu1_dtQ" target="_blank"><img src="images/icons/youtube.svg" alt="YouTube"/></a></div>
+            <div class="header-icon-div"><a href="https://www.facebook.com/RobertNogalFrog/" target="_blank"><img src="images/icons/facebook.svg" alt="Facebook"/></a></div>
+            <div class="header-icon-div"><a href="https://www.instagram.com/robertnogalfrog/" target="_blank"><img src="images/icons/instagram.svg" alt="Instagram"/></a></div>
         </div>
     </header>
     <main>
@@ -129,7 +132,7 @@
 
                         echo '
                         <div id="rent-image">
-                            <img src="images/cars/'.$car_id.'.jpg"/>
+                            <img src="images/cars/'.$car_id.'.jpg" alt="'.$brand.' '.$model.'"/>
                         </div>
                         ';
 
